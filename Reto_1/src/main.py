@@ -21,9 +21,5 @@ def main():
                 for f in ficheros:
                     print("    > ",f)
 
-    #ls = os.listdir(directorio_descargar)
-    #print("Directorio de: "+user+"\n>>>",ls[1])
-
-
 if __name__ == "__main__":
   main()
