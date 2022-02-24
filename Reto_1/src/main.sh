@@ -1,8 +1,8 @@
 #!/bin/bash
 
-user=$(whoami)
-dir=$(ls ~/ | grep -e Descargas -e descargas -e downloads -e Downloads)
+USER=$(/usr/bin/whoami)
+DIR=$(ls ~/ | grep -e Descargas -e descargas -e downloads -e Downloads)
 
-echo -e "Directorio: "/home"/$user/$dir\n" && find ~/$dir -maxdepth 1 -type f | awk -F/ '{print $5}'
+echo -e "Directorio: "/home"/$USER/$DIR\n" && find ~/$DIR -maxdepth 1 -type f | awk -F/ '{print $5}'
 
 
