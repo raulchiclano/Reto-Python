@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
+ # -*- coding: utf-8 -*-
 
 import os
 import getpass
@@ -10,6 +11,8 @@ def main():
     
     
     target = ["Descargas", "descargas", "downloads", "Downloads"]
+
+
 
     with os.scandir(directory) as ficheros:
         ficheros = [fichero.name for fichero in ficheros if fichero.is_dir()]
