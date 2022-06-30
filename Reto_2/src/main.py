@@ -1,6 +1,5 @@
  #!/usr/bin/env python3
- # -*- coding: utf-8 -*- #!/usr/bin/env python3
- # -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*- 
 
 import os
 import getpass
@@ -11,8 +10,6 @@ payload = ("jpge", "JPGE", "jpg", "JPG", "PNG", "png")
 def main():
     user = getpass.getuser()
     directory = "/home/"+user+"/"
-    
-    
     target = ["Descargas", "descargas", "downloads", "Downloads"]
 
 
@@ -26,12 +23,21 @@ def main():
             with os.scandir(download_directory) as ficheros:
                 ficheros = [fichero.name for fichero in ficheros if fichero.is_file()]
                 print("[+] Directorio: "+download_directory+"\n")
-                for f in ficheros:
-                    if f.endswith(payload):
-                        print("    > ",f)
+                target = [file for file in ficheros if file.endswith(payload)]
+                for index, file in enumerate(target):
+                    if re.search(r'.*[0-9].*', file) is not None:
+                        if index%2==0:
+                            print(index, " =>", file.lower())
+                        else:
+                            print(index, file.lower())
+                    else:
+                        if index%2 == 0:
+                            print(index, " =>", file.upper())
+                        else:
+                            print(index, file.upper())
+
 
 if __name__ == "__main__":
   main()
 
-"""
-"""
+
